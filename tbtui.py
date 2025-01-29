@@ -188,10 +188,10 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     df_paths = glob(
-        os.path.join(args.path, "**", "*_history.csv"),
+        os.path.join(args.path, "**", "*.tbtui.csv"),
         recursive=True,
     )
-    df_names = [i.split(os.sep)[-1].split("_history")[0] for i in df_paths]
+    df_names = [i.split(os.sep)[-1].split(".tbtui.")[0] for i in df_paths]
     dfs = [pl.read_csv(i) for i in df_paths]
 
     app = ExperimentTracker()
