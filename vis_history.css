@@ -1,0 +1,19 @@
+TabbedContent {
+    height: 100%;
+    width: 100%;
+}
+
+Plot {
+    height: 90%;
+    width: 95%;
+    border: solid $accent;
+    margin: 1;
+}
+
+#sidebar {
+    dock: left;
+    width: auto;
+    height: 100%;
+    color: darkblue;
+    background: dodgerblue;
+}
