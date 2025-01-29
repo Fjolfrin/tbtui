@@ -44,6 +44,13 @@ Depending on the ML framework of choice there are different options to do so:
 When one or more csvs are present, you can use the app to visualize the metrics across all the session's epochs!
 An added functionality is that you can type `M` (caps) to toggle an annotation on the maximum value in the current plot, and `m` to toggle a corresponding annotation for the minimum value.
 
+
+**EXAMPLE**
+See example plots by navigating to the tbtui folder and typing 
+```
+python tbtui.py --path examples
+```
+
 ## Remarks
 As an ML engineer myself, I would find great usability in a tool like this, were it feature-rich. I hope that I can reach this project to a state that I will happily use it myself for both personal and professional experiments, and that it will prove usefull to other ML engineers as well.
   

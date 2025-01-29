@@ -1,4 +1,5 @@
 import polars as pl
+from pdb import set_trace
 from argparse import ArgumentParser
 import os
 from textual.app import App, ComposeResult
@@ -117,7 +118,7 @@ class ExperimentTracker(App):
 
     """
 
-    CSS_PATH = "vis_history.css"  # Optional CSS for styling
+    CSS_PATH = "tbtui.css"  # Optional CSS for styling
 
     BINDINGS = [
         Binding("m", "toggle_min", "Toggle Min Value", show=True),
@@ -128,7 +129,7 @@ class ExperimentTracker(App):
         super().__init__(*args, **kwargs)
         self.selected_df_idx = 0
         self.metrics = [i for i in dfs[self.selected_df_idx].columns if i != "epoch"]
-        self.epochs = dfs[self.selected_df_idx]["epoch"].to_list()
+        self.epochs = list(range(len(dfs[self.selected_df_idx])))
 
     def compose(self) -> ComposeResult:
         """Create tabbed interface with plots for each metric"""
@@ -158,7 +159,7 @@ class ExperimentTracker(App):
 
         self.selected_df_idx = df_names.index(str(event.pressed.label))
         self.metrics = [i for i in dfs[self.selected_df_idx].columns if i != "epoch"]
-        self.epochs = dfs[self.selected_df_idx]["epoch"].to_list()
+        self.epochs = list(range(len(dfs[self.selected_df_idx])))
 
         # Update existing plots instead of recomposing
         for metric in self.metrics:
